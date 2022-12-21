@@ -1,0 +1,39 @@
+/*!****************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/global.scss ***!
+  \****************************************************************************************************************************************************/
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3e4451;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d2a13d;
+}
+
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  background-color: #282c34;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
