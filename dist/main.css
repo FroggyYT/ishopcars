@@ -363,6 +363,8 @@ nav .links.menu-open ul {
   background-color: rgba(40, 44, 52, 0.8);
   border-radius: 999px;
   padding: 5px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
 }
 .car-card .image-container .dot-count-container .dot {
   width: 10px;
@@ -409,6 +411,9 @@ nav .links.menu-open ul {
 .car-card .image-container:hover .arrow {
   opacity: 1;
 }
+.car-card .image-container:hover .dot-count-container {
+  opacity: 1;
+}
 .car-card .image-container .images {
   width: 100%;
   height: 100%;
@@ -447,6 +452,12 @@ nav .links.menu-open ul {
   padding: 20px;
   padding-right: 0;
 }
+@media (max-width: 1160px) {
+  .inventory-main {
+    flex-direction: column;
+    padding-right: 20px;
+  }
+}
 .inventory-main .sidebar {
   min-width: 300px;
   height: 100vh;
@@ -457,11 +468,166 @@ nav .links.menu-open ul {
   border-width: 1px;
   padding: 20px;
 }
+@media (max-width: 1160px) {
+  .inventory-main .sidebar {
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin-bottom: 20px;
+  }
+}
 .inventory-main .main {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.inventory-main .main .top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  margin-bottom: 20px;
+  padding: 0 60px;
+  position: relative;
+  height: 50px;
+  border-bottom: 1px solid #121417;
+}
+@media (max-width: 750px) {
+  .inventory-main .main .top {
+    flex-direction: column;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 0 0;
+  }
+}
+.inventory-main .main .top .page-text {
+  color: whitesmoke;
+  font-size: 1.2rem;
+  font-weight: 600;
+  white-space: nowrap;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+.inventory-main .main .top .page-text .arrow {
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  border: none;
+  color: whitesmoke;
+  background-color: unset;
+}
+.inventory-main .main .top .page-text .arrow:hover {
+  color: #33A4D0;
+}
+.inventory-main .main .top .page-text .arrow svg {
+  width: 20px;
+  height: 20px;
+  fill: currentcolor;
+}
+.inventory-main .main .top .page-text .arrow[disabled] {
+  color: #DB3333;
+  cursor: default;
+}
+.inventory-main .main .top .sort {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+@media (max-width: 750px) {
+  .inventory-main .main .top .sort {
+    position: unset;
+    width: 100%;
+  }
+}
+.inventory-main .main .top .sort .icon {
+  height: 30px;
+  width: 30px;
+}
+.inventory-main .main .top .sort .icon svg {
+  width: 100%;
+  height: 100%;
+  fill: whitesmoke;
+}
+.inventory-main .main .top .sort .input {
+  display: flex;
+  flex-direction: column;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+@media (max-width: 750px) {
+  .inventory-main .main .top .sort .input {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+}
+.inventory-main .main .top .sort .input label {
+  color: whitesmoke;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 0;
+  white-space: nowrap;
+  cursor: pointer;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+@media (max-width: 750px) {
+  .inventory-main .main .top .sort .input label {
+    font-size: 1.2rem;
+  }
+}
+.inventory-main .main .top .sort .input select {
+  background-color: transparent;
+  border-style: none;
+  border-radius: 5px;
+  color: #33A4D0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+.inventory-main .main .top .sort .input select option {
+  color: whitesmoke;
+  background-color: #282c34;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 0;
+  outline: none;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+.inventory-main .main .top .sort .input select option:hover {
+  background-color: #1d2026;
 }
 
 .car-main {
