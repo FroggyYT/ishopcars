@@ -253,6 +253,7 @@ nav {
 
 .new-car-form-wrapper {
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
     // height:100vh;
@@ -926,10 +927,12 @@ nav {
                 background-color:black;
                 cursor:pointer;
 
+                border-style:solid;
+                border-color:$dark;
+                border-width:2px;
+
                 &.active {
-                    border-style:solid;
                     border-color:$accent;
-                    border-width:2px;
                 }
             }
         }

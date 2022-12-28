@@ -10,8 +10,8 @@
     "simple-jsx-react": "^1.0.4"
   },
   "version": "1.0.0",
-  "description": "",
-  "name": "simple-jsx-react-starter",
+  "description": "iShopCars.com",
+  "name": "i-shop-cars-com",
   "scripts": {
     "dev": "concurrently --kill-others \"npm run watch\" \"npm run nodemon\"",
     "start": "node server.js",

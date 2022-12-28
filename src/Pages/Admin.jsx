@@ -5,6 +5,7 @@ import verifyAdmin from "../Utils/verifyAdmin.js"
 import NewCar from "../Components/NewCar.jsx"
 
 import Navbar from "../Components/Navbar.jsx"
+import Footer from "../Components/Footer.jsx"
 
 const Admin = () => {
     const [isAdmin, setIsAdmin] = useState(false);
@@ -20,13 +21,11 @@ const Admin = () => {
                 <Navbar />
             </header>
             
-            <main>
+            <main className="admin-main">
                 {isAdmin ? <NewCar /> : <h1>Not authorizd</h1>}
             </main>
 
-            <footer>
-
-            </footer>
+            <Footer />
         </>
     )
 }

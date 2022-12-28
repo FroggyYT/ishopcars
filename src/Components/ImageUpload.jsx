@@ -21,7 +21,7 @@ const ImageUpload = ({ setImages, setImageFiles }) => {
 
     return (
         <div className="image-uploader">
-            <input type="file" name="images" id="images" multiple onChange={imagesUploaded}/>
+            <input type="file" accept=".png,.jpg,.jpeg,.webp,.gif" name="images" id="images" multiple onChange={imagesUploaded}/>
         </div>
     )
 }

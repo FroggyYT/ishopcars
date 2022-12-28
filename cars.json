@@ -15,7 +15,7 @@
         "interior": "Black",
         "fueleconomycity": "13",
         "fueleconomyhighway": "18",
-        "description": "Test"
+        "description": "Jeep Wrangler"
     },
     "1C4HJXEGXMW743062": {
         "make": "Jeep",
@@ -32,7 +32,8 @@
         "drivetype": "4WD",
         "interior": "Black",
         "fueleconomycity": "18",
-        "fueleconomyhighway": "22"
+        "fueleconomyhighway": "22",
+        "description": "Jeep Cherokee"
     },
     "1C4HJXEGXMW743050": {
         "make": "Chevrolet",

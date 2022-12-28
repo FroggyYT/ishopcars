@@ -90,6 +90,8 @@ const storage = multer.diskStorage({
         //     await fs.rmdirSync(`uploads/${req.body.vin}`, { recursive: true }, );
         // }
         // delete folder if exists
+        if (req.body.password != ADMIN_PASSWORD) return;
+
         if (req.body.timestamp != lastTimeStamp && fs.existsSync(`uploads/${req.body.vin}`)) {
             fs.rmdirSync(`uploads/${req.body.vin}`, { recursive: true });
             fs.mkdirSync(`uploads/${req.body.vin}`);
@@ -104,6 +106,7 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
         // cb(null, file.originalname);
+        if (req.body.password != ADMIN_PASSWORD) return;
         cb(null, Date.now() + ";;" + file.originalname);
     }
 });
@@ -115,6 +118,25 @@ app.use((req, res, next) => {
 });
 
 const upload = multer({ storage: storage });
+
+const editCarUpload = multer({
+    storage: multer.diskStorage({
+        destination: function (req, file, cb) {
+            if (req.body.password != ADMIN_PASSWORD) return;
+            if (!fs.existsSync(`uploads/${req.body.vin}`)) {
+                fs.mkdirSync(`uploads/${req.body.vin}`);
+            }
+    
+            lastTimeStamp = req.body.timestamp;
+            cb(null, `uploads/${req.body.vin}`);
+        },
+        filename: function (req, file, cb) {
+            // cb(null, file.originalname);
+            if (req.body.password != ADMIN_PASSWORD) return;
+            cb(null, Date.now() + ";;" + file.originalname);
+        }
+    })
+});
 
 app.get("/verifyAdmin", (req, res) => {
     res.json({isAdmin: req.isAdmin});
@@ -133,9 +155,7 @@ app.get("/carVins", (req, res) => {
 })
 
 app.post("/newCar", upload.array("images"), (req, res) => {
-    console.log(req.isAdmin);
     if (!req.body || req.body.password != ADMIN_PASSWORD) return res.send("Not Authorized");
-    // console.log(req.body);
     const car = newCarFromQuery(req.body);
     carsDB.set(car.vin, car.toObject());
     res.sendFile(`${__dirname}/dist/index.html`);
@@ -167,6 +187,27 @@ app.delete("/deleteCar", (req, res) => {
     }
 
     res.status(200).send("Car Deleted");
+});
+
+const removeOldCars = (req) => {
+    if (req.body.removedImages != null && req.body.removedImages != "") {
+        const removedImageIndexes = req.body.removedImages.split(",").map(index => parseInt(index));
+
+        const images = fs.readdirSync(`uploads/${req.body.vin}`);
+        for (let i = 0; i < images.length; i++) {
+            if (removedImageIndexes.includes(i)) {
+                fs.unlinkSync(`uploads/${req.body.vin}/${images[i]}`);
+            }
+        }
+    }
+}
+
+app.post("/editCar", editCarUpload.array("images"), (req, res) => {
+    if (!req.body || req.body.password != ADMIN_PASSWORD) return res.send("Not Authorized");
+    removeOldCars(req);
+    const car = newCarFromQuery(req.body);
+    carsDB.set(car.vin, car.toObject());
+    res.sendFile(`${__dirname}/dist/index.html`);
 });
 
 

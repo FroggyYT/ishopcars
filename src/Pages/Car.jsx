@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import Navbar from "../Components/Navbar.jsx"
+import Footer from "../Components/Footer.jsx"
 
 import getImages from '../Utils/getImages.js'
 
@@ -130,9 +131,7 @@ const Car = () => {
                 )}
             </main>
 
-            <footer>
-
-            </footer>
+            <Footer />
         </>
     )
 }

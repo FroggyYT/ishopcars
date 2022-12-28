@@ -170,6 +170,7 @@ nav .links.menu-open ul {
 
 .new-car-form-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 50px 0;
@@ -737,9 +738,10 @@ nav .links.menu-open ul {
      object-fit: cover;
   background-color: black;
   cursor: pointer;
+  border-style: solid;
+  border-color: #282c34;
+  border-width: 2px;
 }
 .car-main .image-container .images img.active {
-  border-style: solid;
   border-color: #33A4D0;
-  border-width: 2px;
 }

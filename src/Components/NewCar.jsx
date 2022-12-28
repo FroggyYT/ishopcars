@@ -9,46 +9,11 @@ import toDataURL from '../Utils/toDataURL';
 const NewCar = () => {
     const [images, setImages] = useState([]);
     const [imageFiles, setImageFiles] = useState(undefined);
-    const [loadCounter, setLoadCounter] = useState(0);
-
-    const formRef = useRef();
-    const imagesRef = useRef();
-    const infoRef = useRef();
-
-    const vinRef = useRef();
-
-    const otherVinRef = useRef();
-
-    const uploadFilesToServer = async (e) => {
-        // e.preventDefault();
-        // if (vinRef.current.value.length < 2) return;
-
-        // formRef.current.submit();
-    }
-
-    const submitForm = () => {
-    //     console.log("t");
-    //     setLoadCounter(a => a + 1);
-    //     if (loadCounter+1 > 1) infoRef.current.submit();
-    }
-
-    const changeVin = () => {
-    //     otherVinRef.current.value = vinRef.current.value;
-    }
-
-    // useEffect(() => {
-    //     imagesRef.current.files = imageFiles;
-    // }, [imageFiles]);
 
     return (
         <>
-            {/* <iframe onLoad={submitForm} className="nodisplay" name="dummy" id="dummy"></iframe>
-            <form ref={formRef} action="/uploadImages" method="POST" className="nodisplay" target="dummy" encType="multipart/form-data">
-                <input ref={imagesRef} type="file" name="images" id="images" />
-                <input ref={otherVinRef} type="text" name="vinn" id="vinn" />
-            </form> */}
             <div className="new-car-form-wrapper">
-                <form ref={infoRef} className="new-car-form" action="/newCar" method="POST" onSubmit={uploadFilesToServer} encType="multipart/form-data">
+                <form className="new-car-form" action="/newCar" method="POST" encType="multipart/form-data">
                     <div className="inputs">
                         <label htmlFor="make">Make</label>
                         <input type="text" name="make" id="make" />
@@ -66,7 +31,7 @@ const NewCar = () => {
                         <input type="number" name="mileage" id="mileage" />
 
                         <label htmlFor="vin">VIN</label>
-                        <input onChange={changeVin} ref={vinRef} type="text" name="vin" id="vin" />
+                        <input type="text" name="vin" id="vin" />
 
                         <label htmlFor="color">Color</label>
                         <input type="text" name="color" id="color" />
