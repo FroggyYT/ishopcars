@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 
+// Component Imports
 import Navbar from "../Components/Navbar.jsx"
 import Footer from "../Components/Footer.jsx"
-
 import ImageUpload from "../Components/ImageUpload.jsx";
 
+// Util Imports
 import getCarInfo from '../Utils/getCarInfo.js';
-
 import getImages from '../Utils/getImages.js';
-
 import imageURLToFile from '../Utils/imageURLToFile.js';
 
 const Edit = () => {

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
+// Util Imports
 import verifyAdmin from "../Utils/verifyAdmin.js"
 
+// Component Imports
 import NewCar from "../Components/NewCar.jsx"
-
 import Navbar from "../Components/Navbar.jsx"
 import Footer from "../Components/Footer.jsx"
 

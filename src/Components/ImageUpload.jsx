@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
+// Utils Imports
 import toDataURL from '../Utils/toDataURL';
 
 const ImageUpload = ({ setImages, setImageFiles }) => {

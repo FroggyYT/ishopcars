@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-
 import { useParams } from 'react-router-dom'
 
+// Component Imports
 import Navbar from "../Components/Navbar.jsx"
 import Footer from "../Components/Footer.jsx"
 
+// Util Imports
 import getImages from '../Utils/getImages.js'
-
 import isAdmin from '../Utils/isAdmin.js'
 
 const Car = () => {

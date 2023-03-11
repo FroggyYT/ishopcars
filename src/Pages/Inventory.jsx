@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
+// Component Imports
 import Navbar from "../Components/Navbar.jsx"
 import Footer from "../Components/Footer.jsx"
-
 import CarDisplay from "../Components/CarDisplay.jsx"
 
+// Util Imports
 import getCarVins from "../Utils/getCarVins.js";
 import pages from "../Utils/pages.js";
-
 import getImages from "../Utils/getImages.js"
 import getCarInfo from "../Utils/getCarInfo.js";
 
+// Icon Imports
 import { HiSwitchVertical } from "react-icons/hi";
 import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md";
 
 
-const carsPerPage = 24;
+const carsPerPage = 12;
 
 
 const sorts = {

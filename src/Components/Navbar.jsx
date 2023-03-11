@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 
-import Logo from "../Assets/logo-rectangle-trans.png"
-
+// Util Imports
 import breakpoint from "../Utils/breakpoint.js"
+import isAdmin from "../Utils/isAdmin.js"
 
+// Asset Imports
 import { BiMenu } from "react-icons/bi";
 import { IoMdClose } from "react-icons/io";
-
-import isAdmin from "../Utils/isAdmin.js"
+import Logo from "../Assets/logo-rectangle-trans.png"
 
 const Navbar = () => {
     const [screenWidth, setScreenWidth] = useState(innerWidth);
@@ -101,14 +101,11 @@ const Navbar = () => {
                         <Link to="/about">About Us</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/info">Info</Link>
-                    </li>
-                    <li className="nav-item">
                         <Link to="/contact">Contact Us</Link>
                     </li>
                     {admin && (
                         <li className="nav-item">
-                            <Link to="/admin">Admin Panel</Link>
+                            <Link to="/admin">Add a Car</Link>
                         </li>
                     )}
                 </ul>

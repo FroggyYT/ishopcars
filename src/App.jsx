@@ -8,6 +8,8 @@ import Admin from "./Pages/Admin.jsx";
 import Car from "./Pages/Car.jsx";
 import Edit from "./Pages/Edit.jsx";
 
+import Logs from "./Pages/Logs.jsx";
+
 import Error404 from "./Pages/Error404.jsx";
 
 const RedirectToInventory = () => {
@@ -25,6 +27,8 @@ const App = () => {
 
             <Route path="/newCar" element={<RedirectToInventory />} />
             <Route path="/editCar" element={<RedirectToInventory />} />
+
+            <Route path="/logs" element={<Logs />} />
 
             <Route path="*" element={<Error404 />} />
         </Routes>

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+// Component Imports
 import CarCard from "./CarCard.jsx"
-
-
 
 const CarDisplay = ({ cars }) => {
     return (

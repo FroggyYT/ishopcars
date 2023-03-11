@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+// Component Imports
 import Navbar from "../Components/Navbar.jsx"
 import Footer from "../Components/Footer.jsx"
 

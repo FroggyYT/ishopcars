@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-
-import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md";
-
 import { Link } from "react-router-dom";
 
+// Util Imports
 import getCarInfo from "../Utils/getCarInfo.js";
+
+// Icon Imports
+import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md";
 
 const CarCard = ({ images, vin }) => {
     const [currentImage, setCurrentImage] = useState(0);

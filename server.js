@@ -211,12 +211,67 @@ app.post("/editCar", editCarUpload.array("images"), (req, res) => {
 });
 
 
+app.get("/adri", (req, res) => {
+    res.send(`
+        <div style="position:absolute;top:0;left:0;width:100vw;height:100vh;display:grid;place-items:center">
+            <center style="font-size:10rem;font-family:arial">balls</center>
+        </div>
+    `);
+});
 
+const reqDB = new JSONdb("./requests.json");
 
+app.get("/changeAlias", (req, res) => {
+    if (!req.isAdmin) return;
+    const ip = decodeURIComponent(req.query.ip);
+    const alias = decodeURIComponent(req.query.newAlias);
+    
+    let entry = reqDB.get(ip);
+    entry.alias = alias;
+
+    reqDB.set(ip, entry);
+
+    res.status(200).send("Changed");
+});
+
+app.get("/changeNotes", (req, res) => {
+    if (!req.isAdmin) return;
+    const ip = decodeURIComponent(req.query.ip);
+    const notes = decodeURIComponent(req.query.newNotes);
+    
+    let entry = reqDB.get(ip);
+    entry.notes = notes;
+
+    reqDB.set(ip, entry);
+
+    res.status(200).send("Changed");
+});
+
+const logUser = (req) => {
+    const date = require("date-and-time");
+    const now = new Date();
+    const formatted = date.format(now, "MM/DD/YYYY h:mm:ss A");
+
+    let entry = reqDB.get(req.ip) || {
+        alias: "",
+        notes: "",
+        requests: []
+    };
+
+    entry.requests.push(`[${formatted}] ${req.url}`);
+    reqDB.set(req.ip, entry);
+}
+
+app.get("/rawLogs", (req, res) => {
+    if (!req.isAdmin) return res.send("Not Authorized");
+    res.sendFile(`${__dirname}/requests.json`);
+});
 
 // Used for React Router
 app.get('*', (req, res) => {
     console.log(`[${req.ip}] ` + "Requesting: " + req.url);
+    logUser(req);
+
     res.sendFile(`${__dirname}/dist/index.html`);
 });
 

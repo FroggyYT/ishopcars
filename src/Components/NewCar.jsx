@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
 
+// Utils Imports
 import verifyAdmin from "../Utils/verifyAdmin.js"
-
-import ImageUpload from "./ImageUpload.jsx"
-
 import toDataURL from '../Utils/toDataURL';
+
+// Component Imports
+import ImageUpload from "./ImageUpload.jsx"
 
 const NewCar = () => {
     const [images, setImages] = useState([]);
